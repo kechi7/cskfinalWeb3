@@ -3,10 +3,17 @@
     import ArticleText from "../lib/ArticleText.svelte";
     import headshot from '../images/headshot.jpg';
 
-document.getElementById('enterBtn').addEventListener('click', () => {
-    document.getElementById('headshot').scrollIntoView({
-      behavior: 'smooth'
-    });
+import { onMount } from "svelte";
+
+  onMount(() => {
+    const btn = document.getElementById('enterBtn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        document.getElementById('headshot')?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    }
   });
 </script>
 <section id="headshot">
